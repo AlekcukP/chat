@@ -1,0 +1,82 @@
+body {
+    width: 100%;
+    background-color: rgb(190, 214, 219);
+}
+
+.chat{
+    width: 1000px;
+    background: #fff;
+    margin: 20px auto;
+    height: 600px;
+
+    &_header{
+        background-color: rgb(29, 141, 163);
+        height: 50px;
+
+        &>h1{
+            display: inline-block;
+            color: #fff;
+            font-size: 24px;
+            margin-left: 100px;
+            letter-spacing: 4px;
+        }
+    }
+    &_talk{
+        height: 450px;
+        overflow-y: scroll;
+    }
+    &_footer{
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &_text{
+        width: 400px;
+        height: 40px;
+        border-radius: 5px;
+
+       
+    }
+
+    &_btn{
+        height: 40px;
+        width: 80px;
+        border-radius: 5px;
+        background-color: rgb(29, 141, 163);
+        margin-left: 20px;
+    }
+
+}
+
+#log{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+
+.chat_message{
+    display: inline-block;
+    background-color: rgb(92, 216, 67);
+    margin: 5px;
+    border-radius: 5px;
+    max-width: 90%;
+
+    &>span{
+        display: flex;
+    }
+
+    &_author{
+        font-size: 14px;
+    }
+    &_text{
+        margin-top: 8px;
+        font-size: 16px;
+    }
+    &_time{
+        font-size: 12px;
+        margin-top: 8px;
+        color: rgb(53, 53, 53);
+    }
+}
