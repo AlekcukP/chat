@@ -1,0 +1,23 @@
+.section_log{
+    border: 3px solid black;
+    padding: 30px;
+    
+}
+.formwrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
+}
+.block_action{
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row;
+}
+.formbox{
+    padding: 10px;
+}
+
+// .labelblock{
+//     display: block;
+//     margin: 10px;
+// }

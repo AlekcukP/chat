@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
 
         // Переадресовываем браузер на страницу проверки нашего скрипта
         // header("Location: check.php"); exit();
-        header("Location: dist/index.html"); exit();
+        header("Location: chat.php"); exit();
     }
     else
     {
@@ -25,23 +25,35 @@ if(isset($_POST['submit'])){
 }
 ?>
 
-<section class="section_log">
-    
-    <form method="POST">
-        <div class="block_login">
-            <label for="login">Login</label>
-            <input name="login" type="text" required id='login'>
-        </div>
-        <div class="block_pass">
-            <label for="password">Password</label>
-            <input name="password" type="password" required id="password">
-        </div>
-<div class="block_action">
-    <input name="submit" type="submit" value="Войти">
-    <div class="block_reg"><a href="#">Register</a></div>
-</div>
-    </form>
-    
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/dist/app.js"></script>
+    <title>Login</title>
+</head>
+<body>
 
+    <section class="section_log flex">   
 
+        <form method="POST" class='formwrapper'>
+            <div class="block_login formbox">
+                <label for="login labelblock">Login</label>
+                <input name="login" type="text" required id='login'>
+            </div>
+
+            <div class="block_pass formbox">
+                <label for="password labelblock">Password</label>
+                <input name="password" type="password" required id="password">
+            </div>
+
+            <div class="block_action formbox">
+                <input name="submit" type="submit" value="Войти">
+                <div class="block_reg"><a href="register.php">Register</a></div>
+            </div>
+        </form>
+    </section>
+    
+</body>
+</html>

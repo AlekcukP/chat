@@ -1,10 +1,8 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     mode: 'development',
-    entry: './frontend/src/js/app.js',
+    entry: './frontend/js/app.js',
     output: {
         filename: 'app.js',
         path: path.resolve(__dirname, 'dist')
@@ -17,12 +15,8 @@ module.exports = {
             }
         ]
     },
-    devServer: {
-        contentBase: './dist'
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './frontend/src/index.html'
-        }),
-    ],
+    // devServer: {
+    //     contentBase: './dist'
+    // },
+    plugins: [],
 }

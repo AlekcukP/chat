@@ -1,0 +1,21 @@
+@import "_reset.scss";
+@import "_login.scss";
+@import "_chat.scss";
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: rgb(190, 214, 219);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
