@@ -1,12 +1,21 @@
-<?
-$link=mysqli_connect("localhost", "root", "root", "chat");
+<?php
+    session_start(); 
 
-if(isset($_POST["submit"])){
+    $link=mysqli_connect("localhost", "root", "root", "chat");
+    
+    if(isset($_POST["message"])){
+        $today = date("YmdHms");
+        $datetime = date("Y-m-d H:m:s");
+        $message = $_POST["message"];
+        $currentUserId = $_SESSION["user_id"];
+        $sql = "INSERT INTO chat.messages (user_id, message_text, message_time) VALUES ($currentUserId, '$message', '$today')";
+        $query_messages = mysqli_query($link, $sql);
+    }
 
-    $query = mysqli_query($link, "SELECT * FROM messages");
+    $query = mysqli_query($link, "SELECT * FROM messages JOIN users ON messages.user_id = users.user_id");
 
     function getMessages($query){
-        $result;
+        $result = array();
 
         while ( $row = mysqli_fetch_assoc($query) ) {
             $result[] = $row;
@@ -16,18 +25,6 @@ if(isset($_POST["submit"])){
     }
 
     $messages = getMessages($query);
-}
-
-if(isset($_POST["message"])){
-    $today = date("YmdHms");
-    $message = $_POST["message"];
-    $sql = "INSERT INTO chat.messages (user_id, message_text, message_time) VALUES ('1', '$message', '$today')";
-    $query = mysqli_query($link, $sql);
-    $error = mysqli_error($link);
-    var_dump($error);
-
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -41,20 +38,37 @@ if(isset($_POST["message"])){
 <body>
 
     <div class="chat">
-        <div class="chat_header"><h1>Chat</h1></div>
+
+        <div class="chat_header">
+            <h1>Chat</h1>
+
+            <div class="chat_settings">
+                <a href="/settings.php" class="chat_settings_link">Настройки</a>
+            </div>
+
+            <div class="chat_logout flex">
+                <a href="/logout.php" target="_self" class="chat_logout_link">Exit</a>
+            </div>
+        </div>
+
         <div class="chat_talk">
             <ul id="log">
-                <?foreach($messages as $value):?>
-                    <?$user_id = $value["user_id"];
-                    $message_text = $value["message_text"];
-                    $message_time = $value["message_time"];
 
-                    echo("<li class='chat_message'>
-                        <span class='chat_message_author'><strong>$user_id</strong></span>
-                        <span class='chat_message_text'>$message_text</span>
-                        <span class='chat_message_time'>$message_time</span>
-                    </li>") ?>
-                <?endforeach?>
+                <?php foreach($messages as $value):?>
+                    <?php 
+                        $user_id = $value["user_id"];
+                        $message_text = $value["message_text"];
+                        $message_time = $value["message_time"];
+                        $user_login = $value["user_login"];
+
+                        echo(
+                            "<li class='chat_message'>
+                                <span class='chat_message_author'><strong>$user_login</strong></span>
+                                <span class='chat_message_text'>$message_text</span>
+                                <span class='chat_message_time'>$message_time</span>
+                            </li>"); 
+                    ?>
+                <?php endforeach?>
             </ul>
         </div>
 

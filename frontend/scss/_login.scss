@@ -1,4 +1,4 @@
-.section_log{
+.form_section{
     border: 3px solid black;
     padding: 30px;
     
@@ -17,7 +17,7 @@
     padding: 10px;
 }
 
-// .labelblock{
-//     display: block;
-//     margin: 10px;
-// }
+.block_login{
+    display: flex;
+    justify-content: space-between;
+}

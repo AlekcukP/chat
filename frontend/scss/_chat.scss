@@ -7,13 +7,25 @@
     &_header{
         background-color: rgb(29, 141, 163);
         height: 50px;
+        display: flex;
+        justify-content: space-between;
 
         &>h1{
             display: inline-block;
             color: #fff;
             font-size: 24px;
-            margin-left: 100px;
             letter-spacing: 4px;
+            margin-left: 100px;
+        }
+    }
+    &_logout{
+        margin-right: 100px;
+
+        &_link{
+            display: block;
+            text-decoration: none;
+            color: black;
+            text-align: center;
         }
     }
     &_talk{
@@ -73,3 +85,4 @@
         color: rgb(53, 53, 53);
     }
 }
+

@@ -1,4 +1,5 @@
-<?
+<?php
+session_start();
 $link=mysqli_connect("localhost", "root", "root", "chat");
 
 if(isset($_POST['submit'])){
@@ -13,7 +14,7 @@ if(isset($_POST['submit'])){
     }
 
 
-    $query = mysqli_query($link, "SELECT user_id FROM users WHERE user_login='".mysqli_real_escape_string($link, $_POST['login'])."'");
+    $query = mysqli_query($link, "SELECT user_id FROM users WHERE user_login = '".mysqli_real_escape_string($link, $_POST['login'])."'");
     if(mysqli_num_rows($query) > 0){
         $err[] = "Пользователь с таким логином уже существует в базе данных";
     }
@@ -22,7 +23,7 @@ if(isset($_POST['submit'])){
 
         $login = $_POST['login'];
 
-        $password = md5(md5(trim($_POST['password'])));
+        $password = trim($_POST['password']);
 
         mysqli_query($link,"INSERT INTO users SET user_login='".$login."', user_password='".$password."'");
         header("Location: login.php"); exit();
@@ -45,21 +46,21 @@ if(isset($_POST['submit'])){
     <title>Register</title>
 </head>
 <body>
-    <section class="section_register_log">  
+    <section class="form_section">  
     
-        <form method="POST">
-            <div class="block_register_login">
+        <form method="POST" class="formwrapper">
+            <div class="block_login formbox">
                 <label for="login">Login</label>
                 <input name="login" type="text" required id='reg_login'>
             </div>
     
-            <div class="block_register_pass">
+            <div class="block_register_pass formbox">
                 <label for="password">Password</label>
                 <input name="password" type="password" required id="reg_password">
             </div>
     
-            <div class="block_register_action">
-                <input name="submit" type="submit" value="Зарегистрироваться">
+            <div class="block_register_action flex">
+                <input name="submit" type="submit" value="Register me">
             </div>
         </form>
     

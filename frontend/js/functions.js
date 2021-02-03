@@ -4,11 +4,9 @@ window.addEventListener('DOMContentLoaded', ()=>{
         messagesBlock = document.getElementById('log'),
         messageTemplate = document.getElementById('message_template');
     
-    // sendBtn.addEventListener('click', onSendBtnSubmit);
+    //sendBtn.addEventListener('click', onSendBtnSubmit);
     
-    function onSendBtnSubmit(e){
-        e.preventDefault();
-    
+    function onSendBtnSubmit(){
         messagesBlock.insertAdjacentHTML('beforeend', createMessage(inputForm.value));
         inputForm.value = '';
     }
