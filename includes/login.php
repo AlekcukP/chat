@@ -26,7 +26,7 @@
     }
 
     if (isset($_SESSION['user_id'])){
-        header('Location: chat.php?page=chat'); 
+        header('Location: index.php?page=chat'); 
     }
 
     include_once($root.'/views/login.phtml');

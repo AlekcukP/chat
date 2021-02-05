@@ -23,6 +23,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     const buttonsOpenStep = 100;
     const buttonsHideSpeed = 0;
     const buttonsHideStep = 50;
+    let  currentTurget;
 
     
     chatWrapper.addEventListener('click', onChatWrapperClick);
@@ -30,7 +31,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     function onChatWrapperClick(e){
         if(e.target.classList.contains(editClass)){
             const messageBlock = e.target.closest(messageClass);
-            
+
             editEl(messageBlock);
         }
 
@@ -56,6 +57,14 @@ window.addEventListener('DOMContentLoaded', ()=>{
             const dotsBlock = messageBlock.querySelector(`.${extraClass}`);
             const extraBtnsEl = Array.from(messageBlock.querySelectorAll(`.${btnClass}`));
             let time = buttonsOpenSpeed;
+
+            if(currentTurget){
+                canelEditon(currentTurget);
+                setStartPosition(currentTurget);
+                currentTurget = messageBlock;
+            } else{
+                currentTurget = messageBlock;
+            }
 
             dotsBlock.classList.add(hideDotsClass);
 
