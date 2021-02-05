@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', ()=>{
-    let sendBtn = document.getElementById('btn_send'),
+    const sendBtn = document.getElementById('btn_send'),
         inputForm = document.getElementById('input_message'),
         messagesBlock = document.getElementById('log'),
         messageTemplate = document.getElementById('message_template');

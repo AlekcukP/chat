@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/dist/app.js"></script>
+    <title>Chat</title>
+</head>
+<body>
+    <div class="chat container col-lg-6">
+        <div class="chat_header row bg-info">
+            <h1 class="col display-6">Chat</h1>
+            <div class="chat_settings col d-flex justify-content-center">
+                <a href="index.php?page=settings" class="chat_settings_link" title="Settings"></a>
+            </div>
+            <div class="chat_logout col d-flex justify-content-end">
+                <a href="index.php?page=logout" target="_self" class="chat_logout_link">Exit</a>
+            </div>
+        </div>
+        <div class="chat_talk row">
+            <ul id="log">
+                <?php foreach($messages as $value):?>
+                    <?php 
+                        $user_id = $value['user_id'];
+                        $message_text = $value['message_text'];
+                        $message_time = $value['message_time'];
+                        $user_login = $value['user_login'];
+                        $message_id = $value['id'];
+                        if($_SESSION['user_id'] === $user_id){
+                            echo(
+                                "<li class='chat_message' data-message-id='$message_id'>
+                                    <span class='chat_message_author'><strong>$user_login</strong></span>
+                                    <span class='chat_message_text' contenteditable='false'>$message_text</span>
+                                    <span class='chat_message_time'>$message_time</span>
+                                    <span class='chat_message_extra'>
+                                        <span class='chat_message_dots'></span>
+                                    </span>
+                                    <span class='chat_message_extra_btns'>
+                                        <span class='chat_message_edit chat_message_extra_btn'></span>
+                                        <span class='chat_message_delete chat_message_extra_btn'></span>
+                                        <span class='chat_message_deny chat_message_extra_btn'></span>
+                                    </span>
+                                    <span class='chat_message_action'>
+                                        <span class='chat_message_done chat_message_btn'></span>
+                                        <span class='chat_message_canel chat_message_btn'></span>
+                                    </span>
+                                </li>"); 
+                        } else{
+                            echo(
+                                "<li class='chat_message group_message' data-message-id='$message_id'>
+                                    <span class='chat_message_author'><strong>$user_login</strong></span>
+                                    <span class='chat_message_text'>$message_text</span>
+                                    <span class='chat_message_time'>$message_time</span>
+                                </li>"); 
+                        }
+                    ?>
+                <?php endforeach?>
+            </ul>
+        </div>
+        <div class="container p-3 border-top border-3">
+            <form method="post" action="/chat.php" class="row  d-flex justify-content-center" >
+                <div class="col-9">
+                    <input type="text" name="message" class="form-control" id="input_message">
+                </div>
+                <div class="col-2">
+                    <input type="submit" value="send" class="btn bg-info bg-gradient" name="submit" id="btn_send">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,23 +1,4 @@
-.form_section{
-    border: 3px solid black;
-    padding: 30px;
-    
-}
-.formwrapper{
-    display: flex;
-    justify-content: space-between;
-    flex-flow: column;
-}
-.block_action{
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row;
-}
-.formbox{
-    padding: 10px;
-}
-
-.block_login{
-    display: flex;
-    justify-content: space-between;
+.block_reg{
+    display: inline-block;
+    margin-left: 50px;
 }

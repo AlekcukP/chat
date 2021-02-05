@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/dist/app.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <section class="border border-2 border-primary p-4">   
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <form method="POST">
+            <div class="block_login mb-3">
+                <label for="login" class="form-label">Login</label>
+                <input name="login" type="text" required id='login' class="form-control">
+            </div>
+            <div class="block_pass mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input name="password" type="password" required id="password" class="form-control">
+            </div>
+            <div class="block_action mb-3">
+                <input name="submit" type="submit" value="Enter" class="btn btn-primary">
+                <div class="block_reg"><a href="register.php" class="btn btn-secondary">Register</a></div>
+            </div>
+        </form>
+    </section>  
+</body>
+</html>

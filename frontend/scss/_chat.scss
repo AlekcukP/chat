@@ -1,58 +1,29 @@
+$dot_size: 4px;
+
 .chat{
-    width: 1000px;
     background: #fff;
-    margin: 20px auto;
-    height: 600px;
 
-    &_header{
-        background-color: rgb(29, 141, 163);
-        height: 50px;
-        display: flex;
-        justify-content: space-between;
-
-        &>h1{
-            display: inline-block;
-            color: #fff;
-            font-size: 24px;
-            letter-spacing: 4px;
-            margin-left: 100px;
-        }
-    }
     &_logout{
-        margin-right: 100px;
 
         &_link{
             display: block;
             text-decoration: none;
             color: black;
             text-align: center;
+            width: 60px;
         }
     }
     &_talk{
         height: 450px;
         overflow-y: scroll;
     }
-    &_footer{
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    &_settings_link{
+        display: block;
+        width: 50px;
+        height: 50px;
+        background:  no-repeat center url('/dist/png/wheel.png');
+        background-size: 30px;
     }
-
-    &_text{
-        width: 400px;
-        height: 40px;
-        border-radius: 5px;
-    }
-
-    &_btn{
-        height: 40px;
-        width: 80px;
-        border-radius: 5px;
-        background-color: rgb(29, 141, 163);
-        margin-left: 20px;
-    }
-
 }
 
 #log{
@@ -67,10 +38,13 @@
     margin: 5px;
     border-radius: 5px;
     max-width: 90%;
+    padding: 15px;
+    padding-right: 60px;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-self: flex-end;
 
-    &>span{
-        display: flex;
-    }
 
     &_author{
         font-size: 14px;
@@ -80,9 +54,109 @@
         font-size: 16px;
     }
     &_time{
+        position: relative;
+        bottom: -12px;
+        left: -10px;
         font-size: 12px;
         margin-top: 8px;
         color: rgb(53, 53, 53);
     }
+    &_extra{
+        display: block;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        cursor: pointer;
+        width: 30px;
+        height: 20px;
+        z-index: 5;
+    }
+
+    &_dots{
+        display: block;
+        width: $dot_size;
+        height: $dot_size;
+        border-radius: 50%;
+        background-color: #000;
+        position: absolute;
+        top: 6px;
+        right: 12px;
+        
+        &::after, &::before{
+            content: '';
+            display: block;
+            width: $dot_size;
+            height: $dot_size;
+            border-radius: 50%;
+            background-color: #000;
+            cursor: pointer;
+            position: absolute;
+            transition: .1s;
+        }
+        &::before{
+            transform: translateX(-$dot_size - 2px);
+        }
+        &::after{
+            transform: translateX($dot_size + 2px);
+        }
+    }
+    &_action{
+        position: absolute;
+        display: none;
+        bottom: 5px;
+        right: 0px;
+    }
+    &_btn{
+        display: block;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+    }
+    &_done{
+        background:  no-repeat center url('/dist/png/done.png');
+        background-size: 15px;
+        margin-right: 10px;
+    }
+    &_canel{
+        background:  no-repeat center url('/dist/png/cross.png');
+        background-size: 15px;
+        margin-right: 5px;
+    }
 }
 
+.group_message{
+    align-self: flex-start;
+    background-color: rgb(94, 162, 226);
+}
+
+.chat_message_extra_btns{
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    display: none;
+}
+.chat_message_extra_btn{
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .1s;
+}
+.chat_message_edit{
+    background:  no-repeat center url('/dist/png/edit.png');
+    background-size: 15px;
+}
+.chat_message_delete{
+    background:  no-repeat center url('/dist/png/basket.png');
+    background-size: 15px;
+    top: 25px;
+}
+.chat_message_deny{
+    background:  no-repeat center url('/dist/png/canel.png');
+    background-size: 15px;
+    top: 50px;
+
+}

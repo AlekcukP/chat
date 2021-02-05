@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/dist/app.js"></script>
+    <title>Settings</title>
+</head>
+<body>
+    <div class="settings_block">
+        <section class="border border-2 border-primary p-4">  
+            <form method="POST">
+                <div class="block_login mb-3">
+                    <label for="login" class="form-label">Enter new login:</label>
+                    <input name="login" type="text" class="form-control" required>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="password" class="form-label">Enter new password:</label>
+                    <input name="password" type="password" class="form-control" required>
+                </div>
+        
+                <div class="flex">
+                    <input name="submit" type="submit" value="Save" class="btn btn-primary">
+                </div>
+            </form>
+    </div>
+    <div class="back_block">
+        <a href="/index.php?page=chat" class="back_link">Back to chat</a>
+    </div>
+</section>
+</body>
+</html>

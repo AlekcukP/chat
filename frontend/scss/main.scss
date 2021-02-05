@@ -1,6 +1,8 @@
 // @import "_reset.scss";
+@import "bootstrap.min.scss";
 @import "_login.scss";
 @import "_chat.scss";
+@import "_dots_animation.scss";
 
 html, body{
     width: 100%;
@@ -8,7 +10,7 @@ html, body{
 }
 
 body {
-    background-color: rgb(190, 214, 219);
+    background-color: rgb(205, 211, 212);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,4 +20,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.display_flex{
+    display: flex !important;
+}
+
+.display_block{
+    display: block !important;
+}
+
+.display_none{
+    display: none !important;
+}
+.opacity_1{
+    opacity: 1;
 }
