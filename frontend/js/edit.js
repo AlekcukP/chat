@@ -58,13 +58,13 @@ window.addEventListener('DOMContentLoaded', ()=>{
             const extraBtnsEl = Array.from(messageBlock.querySelectorAll(`.${btnClass}`));
             let time = buttonsOpenSpeed;
 
-            if(currentTurget){
+            if(currentTurget && currentTurget !== messageBlock){
                 canelEditon(currentTurget);
                 setStartPosition(currentTurget);
                 currentTurget = messageBlock;
-            } else{
+            } else if(currentTurget !== messageBlock){
                 currentTurget = messageBlock;
-            }
+            }   
 
             dotsBlock.classList.add(hideDotsClass);
 
@@ -111,6 +111,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
     function setStartPosition(el){
         const dotsBlock = el.querySelector(`.${extraClass}`);
+        const btnBlock = el.querySelector(`.${extraBtnClass}`);
         const extraBtnsEl = Array.from(el.querySelectorAll(`.${btnClass}`));
         extraBtnsEl.reverse();
         let time = buttonsHideSpeed;
@@ -121,8 +122,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
             time+=buttonsHideStep;
         });
 
+        timeOutClass(btnBlock, displayClass, animtionSpeed, 'remove');
         dotsBlock.classList.remove(noneClass); 
-
         timeOutClass(dotsBlock, hideDotsClass, animtionSpeed, 'remove');
     }
 

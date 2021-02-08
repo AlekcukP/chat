@@ -24,5 +24,5 @@
 
     $messages = getMessages($query);
 
-    include_once('./views/chat.phtml');
+    include_once($root.'/views/chat.phtml');
 ?>

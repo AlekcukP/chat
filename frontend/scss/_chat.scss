@@ -33,7 +33,6 @@ $dot_size: 4px;
 }
 
 .chat_message{
-    display: inline-block;
     background-color: rgb(92, 216, 67);
     margin: 5px;
     border-radius: 5px;
@@ -69,7 +68,6 @@ $dot_size: 4px;
         cursor: pointer;
         width: 30px;
         height: 20px;
-        z-index: 5;
     }
 
     &_dots{
